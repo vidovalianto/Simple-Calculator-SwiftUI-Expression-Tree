@@ -15,9 +15,7 @@ struct CalculatorView: View {
         GeometryReader { geometry in
             VStack {
                 Spacer()
-                TextField("0", text: Binding<String>(
-                    get: { self.calculatorVM.text },
-                    set: { self.calculatorVM.text = $0 })
+                TextField("0", text: self.$calculatorVM.text
                 )
                     .multilineTextAlignment(.trailing)
                     .font(Font.system(size: 80,
@@ -26,9 +24,9 @@ struct CalculatorView: View {
                     .frame(minHeight: geometry.size.height/4,
                            maxHeight: geometry.size.height/4)
 
-                HStack {
+                HStack(alignment: .top) {
                     VStack {
-                        HStack(spacing: 15) {
+                        HStack {
                             ForEach(self.calculatorVM.toolButtons, id: \.self) { tool in
                                 CircularButtonView(text: String(tool),
                                                    color: Color(CalculatorView.toolcolor))
@@ -67,7 +65,7 @@ struct CalculatorView: View {
 
 struct CalculatorView_Previews: PreviewProvider {
     static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+        CalculatorView()
     }
 }
 

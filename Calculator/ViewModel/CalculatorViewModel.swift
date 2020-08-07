@@ -12,12 +12,13 @@ import Combine
 public final class CalculatorViewModel: ObservableObject {
     public static let shared = CalculatorViewModel()
 
+    //  MARK:- TODO make it an enum
     public let toolButtons: [String] = ["AC", "+/-", "%"]
     public let operationButtons: [Character] = ["+", "-", ":", "x", "="]
+
     public let numberButtons: [String] = Array(1...9).map({ return String($0) }) + ["0"]
 
-    @Published
-    public var text = ""
+    @Published public var text = ""
 
     private var operationStack = [String]()
     private var root: ExpressionTree?

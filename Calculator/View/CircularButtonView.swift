@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CircularButtonView: View {
     var text: String
-    var color: Color = Color.gray
+    var color: Color = .gray
 
     var body: some View {
         ZStack {
@@ -20,7 +20,7 @@ struct CircularButtonView: View {
                 .font(Font.system(size: 24,
                                   weight: .bold,
                                   design: .rounded))
-                .foregroundColor(Color.white)
+                .foregroundColor(.white)
         }.frame(minWidth: 80, maxWidth: 80, minHeight: 80, maxHeight: 80)
     }
 }
